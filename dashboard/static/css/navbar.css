@@ -1,0 +1,100 @@
+/* General Styles */
+body {
+    background-color: #003D2D; /* Dark Green Background */
+    color: #FFFFFF; /* Bright White Text */
+}
+
+/* Navbar Styles */
+.navbar {
+    background: linear-gradient(90deg, #003D2D, #4CAF50); /* Gradient from Dark Green to Medium Green */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.navbar-brand img {
+    height: 40px; /* Logo height */
+    width: auto;
+}
+
+.navbar-nav .nav-link {
+    color: #B8E986; /* Neon Green */
+    font-weight: 500;
+    margin-left: 15px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #E4F77D; /* Soft Yellow on hover */
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #E4F77D; /* Soft Yellow underline on hover */
+    left: 50%;
+    bottom: -5px;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Navbar Button Styles */
+.navbar .btn-primary {
+    background-color: #B8E986; /* Neon Green Button */
+    border-color: #B8E986;
+    border-radius: 30px; /* Rounded corners for a modern look */
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #003D2D; /* Dark Green text */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar .btn-primary:hover {
+    background-color: #4CAF50; /* Medium Green on hover */
+    transform: scale(1.05); /* Slight scaling effect */
+}
+
+.navbar .btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Profile Image Styles */
+.profile-img-navbar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #FFFFFF; /* White border to make it stand out */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation for transform and shadow */
+    object-fit: cover; /* Ensures the image fits well within the circle */
+}
+
+.profile-img-navbar:hover {
+    transform: scale(1.1); /* Slight scaling on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+
+/* Footer Styles */
+.footer {
+    background-color: #003D2D;
+    color: #B8E986;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer a {
+    color: #B8E986;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #E4F77D; /* Soft Yellow on hover */
+    text-decoration: underline;
+}

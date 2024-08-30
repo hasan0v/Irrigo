@@ -1,0 +1,407 @@
+/* General Styles */
+body {
+    background-color: #F4F4F4; /* Updated: Light Gray Background */
+    color: #003D2D; /* Dark Green Text for better contrast */
+}
+
+/* Navbar Styles */
+.navbar {
+    background: #003D2D; /* Dark Green Background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.navbar-brand img {
+    height: 85px; /* Logo height */
+    width: auto;
+}
+
+.navbar-nav .nav-link {
+    color: #B8E986; /* Neon Green Text */
+    font-weight: 500;
+    margin-left: 15px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #E4F77D; /* Soft Yellow on Hover */
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #E4F77D; /* Soft Yellow Underline on Hover */
+    left: 50%;
+    bottom: -5px;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Navbar Button Styles */
+.navbar .btn-primary {
+    background-color: #4CAF50; /* Medium Green Button */
+    border-color: #4CAF50;
+    border-radius: 30px; /* Rounded corners for a modern look */
+    padding: 10px 20px;
+    font-weight: bold;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar .btn-primary:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+    transform: scale(1.05); /* Slight scaling effect */
+}
+
+.navbar .btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Navbar Responsiveness */
+@media (max-width: 768px) {
+    .navbar .btn-primary {
+        width: 100%;
+        margin-top: 10px; /* Adjust button for smaller screens */
+    }
+}
+
+/* Profile Image Styles */
+.profile-img-navbar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #B8E986; /* Neon Green border to match the site's theme */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation for transform and shadow */
+    object-fit: cover; /* Ensures the image fits well within the circle */
+}
+
+.profile-img-navbar:hover {
+    transform: scale(1.1); /* Slight scaling on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Profile Image Responsiveness */
+@media (max-width: 768px) {
+    .profile-img-navbar {
+        width: 35px;
+        height: 35px; /* Adjust image size for smaller screens */
+    }
+}
+
+/* Card Styles */
+.card {
+    background-color: #F0F0F0; /* Updated: Slightly Lighter Gray for content areas */
+    color: #003D2D; /* Dark Green text for better contrast */
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.card-title {
+    font-weight: bold;
+    color: #004C3B; /* Neon Green */
+    padding: 1rem;
+    border-radius: 19px;
+    text-align: center;
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    cursor: grab;
+    transition: background-color 0.3s ease;
+}
+
+.card-title:hover {
+    background-color: #004C3B; /* Slightly lighter green on hover */
+    color: #B8E986;
+}
+
+.sortable-ghost {
+    opacity: 0.5;
+    background-color: #004C3B; /* Slightly lighter green background for ghost element */
+    border: 2px dashed #B8E986; /* Neon Green dashed border */
+    transition: opacity 0.3s ease;
+}
+
+.card-title:active {
+    cursor: grabbing; /* Change cursor when dragging */
+}
+
+/* Profile Header Styles */
+.profile-header {
+    position: relative;
+    padding: 20px;
+    background-color: #4CAF50; /* Medium Green Background */
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 5px solid #B8E986; /* Neon Green border to match the theme */
+    background-color: white;
+}
+
+.profile-header h1 {
+    font-size: 2rem;
+    margin-top: 15px;
+}
+
+/* Profile Card Styles */
+.profile-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #003D2D; /* Dark Green Background */
+    color: #B8E986; /* Neon Green Text */
+}
+
+.profile-card h5 {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    color: #B8E986; /* Neon Green */
+}
+
+.profile-card .form-group {
+    margin-bottom: 20px;
+}
+
+.profile-card .btn-primary {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Profile Page Responsiveness */
+@media (max-width: 768px) {
+    .profile-header {
+        padding: 15px;
+    }
+
+    .profile-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .profile-img {
+        width: 100px;
+        height: 100px; /* Adjust image size for smaller screens */
+    }
+
+    .profile-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .profile-header {
+        padding: 10px;
+    }
+
+    .profile-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .profile-img {
+        width: 80px;
+        height: 80px; /* Further adjustments for smaller screens */
+    }
+
+    .profile-card {
+        padding: 15px;
+    }
+}
+
+/* Login and Signup Page Styles */
+.login-card,
+.signup-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #003D2D; /* Dark Green Background */
+    color: #B8E986; /* Neon Green Text */
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.login-card h2,
+.signup-card h2 {
+    font-size: 1.75rem;
+    color: #E4F77D; /* Soft Yellow Text */
+    margin-bottom: 1.5rem;
+}
+
+/* Form field container */
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+/* Form control (input) */
+.form-control {
+    border: 1px solid #B8E986; /* Neon Green Border */
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    width: 100%;
+    background-color: #F0F0F0; /* Updated: Light Gray background */
+    color: #003D2D; /* Dark Green Text */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #E4F77D; /* Soft Yellow on Focus */
+    box-shadow: 0 0 5px rgba(228, 247, 125, 0.5); /* Yellow glow on focus */
+}
+
+/* Placeholder effect: label inside input */
+.form-label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #E4F77D; /* Soft Yellow Text */
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+/* Move label above input when focused or filled */
+.form-control:focus ~ .form-label,
+.form-control:not(:placeholder-shown) ~ .form-label {
+    top: 0px;
+    left: 10px;
+    font-size: 0.85rem;
+    color: #E4F77D; /* Soft Yellow on focus */
+    background-color: #003D2D; /* Dark Green background */
+    padding: 0 5px;
+}
+
+/* Required field asterisk */
+.form-label .text-danger {
+    color: #FF0000; /* Red color for required field indicator */
+}
+
+.login-card .btn-primary,
+.signup-card .btn-primary {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+    border-radius: 5px;
+    padding: 10px;
+    color: white; /* White text for buttons */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .login-card,
+    .signup-card {
+        padding: 15px;
+    }
+
+    .login-card h2,
+    .signup-card h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .login-card,
+    .signup-card {
+        padding: 10px;
+    }
+
+    .login-card h2,
+    .signup-card h2 {
+        font-size: 1.25rem;
+    }
+}
+
+/* Get Started Page Styles */
+
+/* Quote Box Styling */
+.quote-box {
+    background-color: #004C3B; /* Slightly lighter green background */
+    border-left: 5px solid #4CAF50; /* Medium Green Border */
+    border-radius: 5px;
+    font-style: italic;
+    color: #B8E986; /* Neon Green Text */
+}
+
+.quote-text {
+    font-size: 1.5rem;
+    color: #E4F77D; /* Soft Yellow Text */
+}
+
+.quote-author {
+    font-size: 1rem;
+    color: #B8E986; /* Neon Green Text */
+}
+
+/* Buttons Styling */
+.btn-rounded {
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #4CAF50; /* Medium Green Button */
+    color: white;
+}
+
+.btn-success {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-secondary {
+    border-color: #6c757d;
+    color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Additional Content Styling */
+h5 {
+    color: #E4F77D; /* Soft Yellow */
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+p.lead {
+    color: #B8E986; /* Neon Green */
+}
+
+p {
+    color: #E4F77D; /* Soft Yellow */
+}
+/* Button Styling */
+.btn-primary {
+    background-color: #4CAF50; /* Green Button */
+    border-color: #4CAF50;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #45a049; /* Darker Green on hover */
+    transform: scale(1.05);
+}
