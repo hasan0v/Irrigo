@@ -1,0 +1,111 @@
+/* About Page Specific Styles */
+p{
+    color: #003D2D;
+}
+/* Section Headers */
+h1, h2, h3 {
+    color: #93e838;
+    text-shadow: 2px 2px #6c757d;
+    font-weight: bolder;
+}
+
+h1.display-4 {
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+h5.card-title {
+    font-weight: 600;
+    color: #1B5E20; /* Dark Green */
+}
+
+/* List Styles */
+ul.list-unstyled {
+    padding-left: 20px;
+    list-style-type: none;
+}
+
+ul.list-unstyled li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #212121; /* Dark Charcoal */
+}
+
+ul.list-unstyled li::before {
+    content: "🌟";
+    color: #FFEB3B; /* Yellow */
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Card Styles for About Page */
+.card {
+    background-color: #89ea4a57; /* Dark Blue-Gray */
+    color: #CFD8DC; /* Light Blue-Gray */
+}
+
+.card-text {
+    color: #0d9d5f; /* Light Blue-Gray */
+}
+
+.card-body p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Team Member Image Styles */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.rounded-circle {
+    border: 4px solid #FF7043; /* Deep Orange border */
+    padding: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styles */
+.btn-rounded {
+    border-radius: 30px;
+    background-color: #FF7043; /* Deep Orange */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-rounded:hover {
+    background-color: #F4511E; /* Darker Orange */
+    transform: scale(1.05);
+}
+
+/* Section Spacing */
+.section {
+    margin-bottom: 50px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .text-center {
+        text-align: center;
+    }
+
+    h1.display-4 {
+        font-size: 2rem;
+    }
+
+    h5.card-title {
+        font-size: 1.1rem;
+    }
+
+    .card-body p {
+        font-size: 0.9rem;
+    }
+}
+
+.team-title{
+    color: #FFEB3B;
+    font-size: 2rem;
+}

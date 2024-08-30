@@ -117,7 +117,7 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.card-title:hover {
+.dashboard-title:hover {
     background-color: #004C3B; /* Slightly lighter green on hover */
     color: #B8E986;
 }
@@ -129,7 +129,7 @@ body {
     transition: opacity 0.3s ease;
 }
 
-.card-title:active {
+.dashboard-title:active {
     cursor: grabbing; /* Change cursor when dragging */
 }
 
@@ -381,17 +381,17 @@ body {
 
 /* Additional Content Styling */
 h5 {
-    color: #E4F77D; /* Soft Yellow */
+    color: #0F3D2D; /* Soft Yellow */
     margin-top: 30px;
     font-weight: bold;
 }
 
 p.lead {
-    color: #B8E986; /* Neon Green */
+    color: #68af1f; /* Neon Green */
 }
 
 p {
-    color: #E4F77D; /* Soft Yellow */
+    color: #6d8100; /* Soft Yellow */
 }
 /* Button Styling */
 .btn-primary {

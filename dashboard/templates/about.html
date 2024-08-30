@@ -1,0 +1,191 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Hakkımızda | BSU Creativity Workz{% endblock %}
+
+{% block content %}
+<link href="{% static 'css/about.css' %}" rel="stylesheet">
+
+<div class="container mt-5">
+    <!-- Page Header -->
+    <div class="text-center mb-5">
+        <h1 class="display-4 font-weight-bold">BSU Creativity Workz</h1>
+        <p class="lead text-muted">Teknoloji ile geleceği şekillendiren bir ekip</p>
+    </div>
+
+    <!-- Team Information Section -->
+    <section class="mb-5">
+        <div class="card shadow-lg">
+            <div class="card-body">
+                <h1 class="team-title mb-4 text-center">Takım Bilgileri</h1>
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <p><strong>Kuruluş Tarihi:</strong> 2022</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <p><strong>Kuruluş Yeri:</strong> Bakü, Azerbaycan</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <p><strong>Üye Sayısı:</strong> 5</p>
+                    </div>
+                </div>
+                <hr class="my-4">
+                <h3 class="team-title text-center mb-4">Başarılarımız</h3>
+                <ul class="list-unstyled">
+                    <li>🌟 TeknoFest Azerbaycan, Tarım Teknolojisi Yarışması, II. Derece</li>
+                    <li>🌟 TeknoFest 2023 İstanbul, Akıllı Ulaşım Yarışması, I. Derece</li>
+                    <li>🌟 TeknoFest 2023 Ankara, Ulaşım ve Mobilite Yarışması, En İyi Girişim Derecesi</li>
+                    <li>🌟 Bakü Water Week, En İyi Start-up Ödülü</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Members Section -->
+    <section class="mb-5">
+        <h2 class="text-center mb-4">Takım Üyeleri</h2>
+        <div class="row text-center justify-content-center">
+            <div class="col-md-2">
+                <img src="{% static 'images/mahir.png' %}" alt="Team Advisor" class="img-fluid rounded-circle mb-2">
+                <p>Mahir Pirguliyev<br><small>Takım Danışmanı</small></p>
+            </div>
+            <div class="col-md-2">
+                <img src="{% static 'images/ilyas.png' %}" alt="Team Captain" class="img-fluid rounded-circle mb-2">
+                <p>Ilyas Nasibov<br><small>Takım Kaptanı</small></p>
+            </div>
+            <div class="col-md-2">
+                <img src="{% static 'images/reyhan.png' %}" alt="Chemical Production" class="img-fluid rounded-circle mb-2">
+                <p>Reyhan Mirsultanova<br><small>Kimyasal Üretim</small></p>
+            </div>
+            <div class="col-md-2">
+                <img src="{% static 'images/fatma.png' %}" alt="Electronics" class="img-fluid rounded-circle mb-2">
+                <p>Fatma Hüseynli<br><small>Elektronik</small></p>
+            </div>
+            <div class="col-md-2">
+                <img src="{% static 'images/rasul.png' %}" alt="Software" class="img-fluid rounded-circle mb-2">
+                <p>Rasul Mehdilyev<br><small>Yazılım</small></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience Section -->
+    <section class="mb-5">
+        <h2 class="text-center mb-4">Hedef Kitle</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'images/farmers.png' %}" class="card-img-top" alt="Çiftçiler, Tarım Şirketleri">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Çiftçiler</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'images/companies.png' %}" class="card-img-top" alt="Tarım Şirketleri">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Tarım Şirketleri</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'images/parks.png' %}" class="card-img-top" alt="Şehir Planlama, Park ve Bahçeler">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Şehir Planlama, Park ve Bahçeler</h5>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section>
+        <h2 class="text-center mb-4">Çiftçilere Sağladığımız Faydalar</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'images/water_saving.png' %}" class="card-img-top" alt="Su Tasarrufu">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Su Tasarrufu</h5>
+                        <p class="card-text">SAP hidro jeller sayesinde büyük miktarda su tasarrufu</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'images/time_saving.png' %}" class="card-img-top" alt="Zaman ve Para Tasarrufu">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">İşgücü, Para ve Zaman Tasarrufu</h5>
+                        <p class="card-text">Uzaktan denetim ve gerektiğinde müdahale sayesinde işgücü, para ve zaman tasarrufu</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'images/smart_system.png' %}" class="card-img-top" alt="Akıllı Sulama Sistemi">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Akıllı Sulama Sistemi</h5>
+                        <p class="card-text">Tarım alanlarında var olan sulama sistemlerini düşük maliyetle akıllı sulama sistemine çevirme</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'images/hardware.png' %}" class="card-img-top" alt="Dayanıklı Donanım">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Dayanıklı Donanım Bileşenleri</h5>
+                        <p class="card-text">Kablosuz iletişim sayesinde düşük bozulma riski, dış etkenlerden etkilenmeyen dayanıklı donanım bileşenleri</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'images/mobile_app.png' %}" class="card-img-top" alt="Mobil Uygulama">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mobil ve Web Tabanlı Uygulama</h5>
+                        <p class="card-text">Herkes tarafından kullanılabilir olan, kolay arayüze sahip, kullanıcı dostu mobil ve web tabanlı uygulama</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'images/ai_insect_repellent.png' %}" class="card-img-top" alt="Zararlı Haşere Kovucu">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Zararlı Haşere Kovucu Ses Sistemi</h5>
+                        <p class="card-text">Yapay zeka tabanlı, 110 kHz hoparlörlü zararlı haşere kovucu ses sistemi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information Section -->
+    <section class="mb-5">
+        <h2 class="text-center mb-4">İletişim Bilgileri</h2>
+        <div class="card shadow-lg">
+            <div class="card-body">
+                <div class="row text-center mt-4">
+                    <div class="col-md-4">
+                        <p><strong>Email:</strong> info@bsucreativityworkz.com</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p><strong>Telefon:</strong> +994 12 345 67 89</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p><strong>Adres:</strong> Bakü, Azerbaycan</p>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    {% comment %} <a href="{% url 'contact' %}" class="btn btn-success btn-rounded">Bize Ulaşın</a> {% endcomment %}
+                    <a href="#" class="btn btn-success btn-rounded">Bize Ulaşın</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}
