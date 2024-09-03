@@ -5,7 +5,7 @@ p{
 /* Section Headers */
 h1, h2, h3 {
     color: #93e838;
-    text-shadow: 2px 2px #6c757d;
+    text-shadow: 2px 2px 4px #6c757d;
     font-weight: bolder;
 }
 

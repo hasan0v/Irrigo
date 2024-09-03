@@ -1,0 +1,283 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}Irrigo Kontrol{% endblock %}
+
+{% block content %}
+<script src="{% static 'js/dashboard.js' %}"></script>
+
+<style>
+    /* General Styles */
+body {
+    background-color: #f7f7f7;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+.management-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.section-title {
+    color: #4CAF50;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+}
+
+/* Valve Button Styles */
+.valves {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.valve-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 5px;
+}
+
+.valve-button.selected {
+    background-color: #ff5722; /* Highlight selected valve with orange */
+}
+
+.valve-button:hover {
+    transform: translateY(-3px); /* Lift the button slightly on hover */
+}
+
+.valve-button:active {
+    transform: translateY(0); /* Return to normal position when clicked */
+}
+
+.valve-button.active {
+    background-color: #4CAF50; /* Green when active */
+}
+
+.valve-button.inactive {
+    background-color: #f44336; /* Red when inactive */
+}
+
+/* Device Card Styles */
+.device-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.device-card.on {
+    background-color: rgba(76, 175, 80, 0.2); /* Slightly transparent green */
+}
+
+.device-card.off {
+    background-color: rgba(244, 67, 54, 0.2); /* Slightly transparent red */
+}
+
+.device-image {
+    width: 60px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.device-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-control {
+    width: 70px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-control.btn-danger {
+    background-color: #f44336;
+}
+
+.btn-control:hover {
+    transform: translateY(-3px);
+}
+
+.btn-control:active {
+    transform: translateY(0);
+}
+
+/* Tank Control Buttons */
+#drain-tank, #fill-tank {
+    margin: 10px;
+    padding: 15px 30px;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+#drain-tank {
+    background-color: #FFC107;
+    color: #333;
+}
+
+#fill-tank {
+    background-color: #2196F3;
+    color: white;
+}
+
+#drain-tank:hover, #fill-tank:hover {
+    transform: translateY(-3px);
+}
+
+#drain-tank:active, #fill-tank:active {
+    transform: translateY(0);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .valves {
+        flex-direction: column;
+    }
+
+    .valve-button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .device-controls {
+        flex-direction: column;
+    }
+
+    .btn-control {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .device-image {
+        width: 50px;
+    }
+
+    .device-card {
+        padding: 15px;
+    }
+
+    #drain-tank, #fill-tank {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+    
+
+</style>
+<div class="container mt-5">
+    <div class="card management-card">
+        <div class="card-body">
+            <h3 class="card-title" style="color: #9ecfaa;">Cihaz Kontrol Paneli</h3>
+            <hr>
+            <div class="row">
+                <div class="col-md-12">
+                    <h5 class="section-title">Sulama Vanaları:</h5>
+                    <div class="valves">
+                        <div class="valve-status" data-device="device1">
+                            <button class="btn valve-button" id="valve1" data-valve="valve1">
+                                <span class="valve-name">Vana 1</span>
+                                <span class="status-circle"></span>
+                            </button>
+                        </div>
+                        <div class="valve-status" data-device="device2">
+                            <button class="btn valve-button" id="valve2" data-valve="valve2">
+                                <span class="valve-name">Vana 2</span>
+                                <span class="status-circle"></span>
+                            </button>
+                        </div>
+                        <div class="valve-status" data-device="device3">
+                            <button class="btn valve-button" id="valve3" data-valve="valve3">
+                                <span class="valve-name">Vana 3</span>
+                                <span class="status-circle"></span>
+                            </button>
+                        </div>
+                        <div class="valve-status" data-device="device4">
+                            <button class="btn valve-button" id="valve4" data-valve="valve4">
+                                <span class="valve-name">Vana 4</span>
+                                <span class="status-circle"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="device-card" data-device="device1">
+                        <h6>Sulama Pompası</h6>
+                        <img src="{% static 'images/irrigation_pump.png' %}" alt="Sulama Pompası" class="device-image">
+                        <div class="device-controls">
+                            <button class="btn btn-success btn-control" id="pump-on">Aç</button>
+                            <button class="btn btn-danger btn-control" id="pump-off">Kapat</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="device-card">
+                        <h6>Devirdaim 220V</h6>
+                        <img src="{% static 'images/circulation.png' %}" alt="Devirdaim 220V" class="device-image">
+                        <div class="device-controls">
+                            <button class="btn btn-success btn-control" id="circulation-on">Aç</button>
+                            <button class="btn btn-danger btn-control" id="circulation-off">Kapat</button>
+                        </div>
+                    </div>                    
+                </div>
+
+                <div class="col-md-3">
+                    <div class="device-card" data-device="device3">
+                        <h6>45 kHz Hoparlör</h6>
+                        <img src="{% static 'images/speaker.png' %}" alt="45 kHz Hoparlör" class="device-image">
+                        <div class="device-controls">
+                            <button class="btn btn-success btn-control" id="speaker-on">Aç</button>
+                            <button class="btn btn-danger btn-control" id="speaker-off">Kapat</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="device-card" data-device="device4">
+                        <h6>Solar Enerji</h6>
+                        <img src="{% static 'images/solar_energy.png' %}" alt="Solar Enerji" class="device-image">
+                        <div class="device-controls">
+                            <button class="btn btn-success btn-control" id="solar-on">Aç</button>
+                            <button class="btn btn-danger btn-control" id="solar-off">Kapat</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 mt-4">
+                    <div class="text-center">
+                        <button class="btn btn-warning" id="drain-tank">Su tankını boşalt</button>
+                        <button class="btn btn-primary" id="fill-tank">Su tankını doldur</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

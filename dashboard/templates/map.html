@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Alan Haritası{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="map-card">
+        <h3 class="map-title">Alan haritası</h3>
+        <div class="map-content">
+            <!-- Map Image -->
+            <img src="{% static 'images/xerite.png' %}" alt="Alan Haritası" class="map-image">
+
+            <!-- Info Section -->
+            <div class="info-section">
+                <div class="info-item">
+                    <div class="dot aktif"></div>
+                    <p>Sulama Pompası Aktif</p>
+                </div>
+                <div class="info-item">
+                    <div class="dot ariza"></div>
+                    <p>Sulama Pompası Arızalı</p>
+                </div>
+                <div class="info-item">
+                    <div class="dot calisiyor-degil"></div>
+                    <p>Sulama Pompası Çalışmıyor</p>
+                </div>
+                <button class="btn btn-warning update-btn">Haritayı güncelle</button>
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

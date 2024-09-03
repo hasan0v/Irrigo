@@ -12,5 +12,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('signup/', views.signup, name='signup'),
     path('profile/', views.profile, name='profile'),
+    path('map/', views.water_engine_status, name='map'),
+    path('kontrol/', views.kontrol_view, name='kontrol'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

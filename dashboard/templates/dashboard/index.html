@@ -1,93 +1,154 @@
 {% extends 'base.html' %}
 
-{% load static%}
+{% load static %}
 {% block title %}Irrigo{% endblock %}
 
 {% block content %}
 
-
-    <!-- Main Content -->
+    <!-- Ana İçerik -->
     <div class="container mt-5">
         <div class="row">
             {% comment %} <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title dashboard-title">Field Map</h5>
+                        <h5 class="card-title dashboard-title">Tarla Haritası</h5>
                         <div id="field_map" style="height: 500px;"></div>
                     </div>
                 </div>
             </div> {% endcomment %}
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title dashboard-title" data-bs-toggle="tooltip" data-bs-placement="top" title="Drag to rearrange">Soil Moisture Level</h5>
+                        <h5 class="card-title dashboard-title" >Toprak Nem Seviyesi</h5>
                         <div id="soil_moisture_chart" style="height: 400px;"></div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            
+            <div class="col-md-7">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title dashboard-title" data-bs-toggle="tooltip" data-bs-placement="top" title="Drag to rearrange">Current Temperature</h5>
+                        <h5 class="card-title dashboard-title" >Mevcut Sıcaklık</h5>
                         <div id="current_temperature_chart" style="height: 400px;"></div>
                         <div id="temperature_label" class="temperature-label"></div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-8">
+
+            <div class="col-md-3" style="position: fixed; z-index:999; right:-34px; bottom:10px; font-size: 10px !important; background: #0b240ae0; border-radius: 31px; padding: 0px 33px 6px 0;">
+                {% comment %} <div class="">
+                    <div class="card-body"> {% endcomment %}
+                        
+                        <div id="rainfall_display" class="rainfall-display" style="height: 62px; display: flex; justify-content: center; align-items: center;">
+                            <h5 class="dashboard-title" style="color: #b2d8ea;">Yağmur Durumu</h5>
+                            {% if rainfall_values|last == 1 %}
+                                <img src="{% static 'images/rain.gif' %}" alt="Raining" style="height: 35px; width: auto;">
+                            {% else %}
+                                <img src="{% static 'images/sun.gif' %}" alt="Sunny" style="height: 35px; width: auto;">
+                            {% endif %}
+                        </div>
+                    {% comment %} </div>
+                </div> {% endcomment %}
+            </div>
+
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title dashboard-title" data-bs-toggle="tooltip" data-bs-placement="top" title="Drag to rearrange">Temperature Over Time</h5>
+                        <h5 class="card-title dashboard-title" >Zaman İçindeki Sıcaklık</h5>
                         <div id="temperature_chart" style="height: 400px;"></div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title dashboard-title" data-bs-toggle="tooltip" data-bs-placement="top" title="Drag to rearrange">Latest pH Level</h5>
+                        <h5 class="card-title dashboard-title" >Son pH Seviyesi</h5>
                         <div id="ph_level_gauge" style="height: 400px;"></div>
 
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title dashboard-title" data-bs-toggle="tooltip" data-bs-placement="top" title="Drag to rearrange">Rainfall</h5>
-                        <div id="rainfall_chart" style="height: 400px;"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title dashboard-title" data-bs-toggle="tooltip" data-bs-placement="top" title="Drag to rearrange">Tank Water Volume</h5>
-                        <div id="tank_water_volume_chart" style="height: 400px;"></div>
-                    </div>
-                </div>
-            </div>
             
-            <div class="col-md-4">
+            
+            <!-- In your Django template -->
+            <div id="rainfall_value" style="display: none;">{{ rainfall_values|last }}</div>
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title dashboard-title" data-bs-toggle="tooltip" data-bs-placement="top" title="Drag to rearrange">Water Pressure</h5>
+                        <h5 class="card-title dashboard-title" >Su Basıncı</h5>
                         <div id="water_pressure_chart" style="height: 400px;"></div>
                         <div id="pressure_label" class="pressure-label"></div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-8">
+            
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title dashboard-title" data-bs-toggle="tooltip" data-bs-placement="top" title="Drag to rearrange">UV Intensity</h5>
+                        <h5 class="card-title dashboard-title" >Depo Su Hacmi</h5>
+                        <div id="tank_water_volume_chart" style="height: 400px;"></div>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="col-md-8" style="margin: 0 auto;">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title dashboard-title" >UV Yoğunluğu</h5>
                         <div id="uv_intensity_chart" style="height: 400px;"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
+    <script>
+        try {
+            var timestamps = {{ timestamps|safe }};
+        } catch (error) {
+            var timestamps = 0;
+        }
+    
+        try {
+            var soil_moisture_values = {{ soil_moisture_values|safe }};
+        } catch (error) {
+            var soil_moisture_values = 0;
+        }
+    
+        try {
+            var temperature_values = {{ temperature_values|safe }};
+        } catch (error) {
+            var temperature_values = 0;
+        }
+    
+        try {
+            var ph_level_values = {{ ph_level_values|safe }};
+        } catch (error) {
+            var ph_level_values = 0;
+        }
+    
+        try {
+            var uv_intensity_values = {{ uv_intensity_values|safe }};
+        } catch (error) {
+            var uv_intensity_values = 0;
+        }
+    
+        try {
+            var rainfall_values = {{ rainfall_values|safe }};
+        } catch (error) {
+            var rainfall_values = 0;
+        }
+    
+        try {
+            var water_pressure_values = {{ water_pressure_values|safe }};
+        } catch (error) {
+            var water_pressure_values = 0;
+        }
+    
+        try {
+            var tank_water_volume_values = {{ tank_water_volume_values|safe }};
+        } catch (error) {
+            var tank_water_volume_values = 0;
+        }
+    </script>
 {% endblock %}
-

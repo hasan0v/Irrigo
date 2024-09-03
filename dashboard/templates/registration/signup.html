@@ -1,45 +1,45 @@
 {% extends 'base.html' %}
 
-{% block title %}Sign Up - Irrigo Dashboard{% endblock %}
+{% block title %}Kayıt Ol - Irrigo Kontrol Paneli{% endblock %}
 
 {% block content %}
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-lg-6 col-md-8">
             <div class="signup-card bg-light p-4">
-                <h2 class="text-center mb-4">Create Your Account</h2>
+                <h2 class="text-center mb-4">Hesabınızı Oluşturun</h2>
                 <form method="post">
                     {% csrf_token %}
                     <div class="form-group mb-4 position-relative">
                         <input type="text" name="first_name" id="id_first_name" class="form-control" placeholder=" ">
-                        <label for="id_first_name" class="form-label">First Name <span class="text-danger">*</span></label>
+                        <label for="id_first_name" class="form-label">Ad <span class="text-danger">*</span></label>
                     </div>
                     <div class="form-group mb-4 position-relative">
                         <input type="text" name="last_name" id="id_last_name" class="form-control" placeholder=" ">
-                        <label for="id_last_name" class="form-label">Last Name <span class="text-danger">*</span></label>
+                        <label for="id_last_name" class="form-label">Soyad <span class="text-danger">*</span></label>
                     </div>
                     <div class="form-group mb-4 position-relative">
                         <input type="email" name="email" id="id_email" class="form-control" placeholder=" ">
-                        <label for="id_email" class="form-label">Email <span class="text-danger">*</span></label>
+                        <label for="id_email" class="form-label">E-posta <span class="text-danger">*</span></label>
                     </div>
                     <div class="form-group mb-4 position-relative">
                         <input type="text" name="username" id="id_username" class="form-control" placeholder=" ">
-                        <label for="id_username" class="form-label">Username <span class="text-danger">*</span></label>
+                        <label for="id_username" class="form-label">Kullanıcı Adı <span class="text-danger">*</span></label>
                     </div>
                     <div class="form-group mb-4 position-relative">
                         <input type="password" name="password1" id="id_password1" class="form-control" placeholder=" ">
-                        <label for="id_password1" class="form-label">Password <span class="text-danger">*</span></label>
+                        <label for="id_password1" class="form-label">Şifre <span class="text-danger">*</span></label>
                     </div>
                     <div class="form-group mb-4 position-relative">
                         <input type="password" name="password2" id="id_password2" class="form-control" placeholder=" ">
-                        <label for="id_password2" class="form-label">Confirm Password <span class="text-danger">*</span></label>
+                        <label for="id_password2" class="form-label">Şifreyi Onayla <span class="text-danger">*</span></label>
                     </div>
                     <div class="form-group mt-4">
-                        <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+                        <button type="submit" class="btn btn-primary w-100">Kayıt Ol</button>
                     </div>
                 </form>
                 <div class="text-center mt-3">
-                    <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+                    <p>Zaten bir hesabınız var mı? <a href="{% url 'login' %}">Buradan giriş yapın</a></p>
                 </div>
             </div>
         </div>

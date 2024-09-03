@@ -3,24 +3,24 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="{% static 'images/logo.png' %}" alt="Irrigo Logo">
+            <img src="{% static 'images/logo.png' %}" alt="Irrigo Logosu">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Gezinmeyi Değiştir">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Anasayfa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Reports</a>
-                </li>
+                    <a class="nav-link" href="{% url 'kontrol' %}">Cihaz Kontrol</a>
+                </li>      
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Settings</a>
-                </li>
+                    <a class="nav-link" href="{% url 'about' %}">Hakkında</a>
+                </li>      
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                    <a class="nav-link" href="{% url 'map' %}">Harita</a>
                 </li>                
             </ul>
             <ul class="navbar-nav ms-auto">
@@ -28,24 +28,24 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle profile-img-navbar-button" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {% if user.profile.image %}
-                                <img src="{{ user.profile.image.url }}" alt="Profile Image" class="profile-img-navbar">
+                                <img src="{{ user.profile.image.url }}" alt="Profil Resmi" class="profile-img-navbar">
                             {% else %}
-                                <img src="{% static 'images/default-profile.png' %}" alt="Profile Image" class="profile-img-navbar">
+                                <img src="{% static 'images/default-profile.png' %}" alt="Profil Resmi" class="profile-img-navbar">
                             {% endif %}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+                            <li><a class="dropdown-item" href="{% url 'profile' %}">Profil</a></li>
                             <li>
                                 <form method="post" action="{% url 'logout' %}">
                                     {% csrf_token %}
-                                    <button type="submit" class="dropdown-item">Logout</button>
+                                    <button type="submit" class="dropdown-item">Çıkış Yap</button>
                                 </form>
                             </li>
                         </ul>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="btn btn-warning ms-2" href="{% url 'get_started' %}">Get Started</a>
+                        <a class="btn btn-warning ms-2" href="{% url 'get_started' %}">Başlayın</a>
                     </li>
                 {% endif %}
             </ul>
