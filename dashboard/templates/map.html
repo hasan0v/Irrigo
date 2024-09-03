@@ -5,9 +5,199 @@
 {% block title %}Alan Haritası{% endblock %}
 
 {% block content %}
+<style>
+/* General Styles */
+body {
+    background-color: #F4F4F4;
+    color: #3E2723;
+    font-family: Arial, sans-serif;
+}
+
+/* Map Card Styles */
+.map-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.map-title {
+    color: #4CAF50;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.map-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.map-image {
+    border-radius: 10px;
+    max-width: 60%;
+    height: auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.map-image:hover {
+    transform: scale(1.02);
+}
+
+/* Info Section Styles */
+.info-section {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin-left: 20px;
+    min-width: 250px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.info-item p {
+    margin: 0;
+    margin-left: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Durum Noktaları */
+.dot.aktif {
+    background-color: #4CAF50; /* Green */
+}
+
+.dot.ariza {
+    background-color: #FF5722; /* Red */
+}
+
+.dot.calisiyor-degil {
+    background-color: #9E9E9E; /* Gray */
+}
+
+/* Update Button */
+.update-btn {
+    background-color: #FF9800; /* Orange button */
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.update-btn:hover {
+    background-color: #FB8C00; /* Darker orange on hover */
+    transform: translateY(-2px);
+}
+
+/* Loading Circle */
+.loading-circle {
+    display: none;
+    border: 6px solid #f3f3f3; /* Light gray */
+    border-top: 6px solid #4CAF50; /* Green */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+/* Keyframes for spin animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Informative Message */
+.informative-message {
+    display: none;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .map-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .map-image {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .info-section {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .update-btn {
+        width: 100%;
+    }
+}
+@media (max-width: 1100px) {
+    .map-card {
+        max-width: 730px;
+    }
+}
+@media (max-width: 576px) {
+    .map-card {
+        padding: 15px;
+    }
+
+    .map-title {
+        font-size: 1.5rem;
+    }
+
+    .info-item p {
+        font-size: 0.9rem;
+    }
+
+    .dot {
+        width: 12px;
+        height: 12px;
+    }
+
+    .update-btn {
+        padding: 8px 15px;
+    }
+}
+</style>
+
 <div class="container mt-5">
     <div class="map-card">
-        <h3 class="map-title">Alan haritası</h3>
+        <h3 class="map-title">Alan Haritası</h3>
         <div class="map-content">
             <!-- Map Image -->
             <img src="{% static 'images/xerite.png' %}" alt="Alan Haritası" class="map-image">
@@ -26,10 +216,34 @@
                     <div class="dot calisiyor-degil"></div>
                     <p>Sulama Pompası Çalışmıyor</p>
                 </div>
-                <button class="btn btn-warning update-btn">Haritayı güncelle</button>
+                <button class="btn update-btn">Haritayı Güncelle</button>
+                <div class="loading-circle"></div>
             </div>
-            
         </div>
+        <div class="informative-message">Harita başarıyla güncellendi!</div>
     </div>
 </div>
+
+<script>
+$(document).ready(function() {
+    $('.update-btn').on('click', function() {
+        var $loadingCircle = $('.loading-circle');
+        var $infoMessage = $('.informative-message');
+
+        // Show the loading circle
+        $loadingCircle.show();
+
+        // Simulate loading for 2 seconds
+        setTimeout(function() {
+            $loadingCircle.hide();
+            $infoMessage.show();
+
+            // Hide the informative message after 5 seconds
+            setTimeout(function() {
+                $infoMessage.fadeOut();
+            }, 5000);
+        }, 2000);
+    });
+});
+</script>
 {% endblock %}

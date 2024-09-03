@@ -8,192 +8,268 @@
 
 <style>
     /* General Styles */
-body {
-    background-color: #f7f7f7;
-    font-family: 'Roboto', sans-serif;
-    color: #333;
-}
-
-.management-card {
-    background-color: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-top: 30px;
-}
-
-.section-title {
-    color: #4CAF50;
-    font-weight: bold;
-    font-size: 1.25rem;
-    margin-bottom: 15px;
-}
-
-/* Valve Button Styles */
-.valves {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-}
-
-.valve-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 15px 25px;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin: 5px;
-}
-
-.valve-button.selected {
-    background-color: #ff5722; /* Highlight selected valve with orange */
-}
-
-.valve-button:hover {
-    transform: translateY(-3px); /* Lift the button slightly on hover */
-}
-
-.valve-button:active {
-    transform: translateY(0); /* Return to normal position when clicked */
-}
-
-.valve-button.active {
-    background-color: #4CAF50; /* Green when active */
-}
-
-.valve-button.inactive {
-    background-color: #f44336; /* Red when inactive */
-}
-
-/* Device Card Styles */
-.device-card {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    transition: background-color 0.3s ease;
-}
-
-.device-card.on {
-    background-color: rgba(76, 175, 80, 0.2); /* Slightly transparent green */
-}
-
-.device-card.off {
-    background-color: rgba(244, 67, 54, 0.2); /* Slightly transparent red */
-}
-
-.device-image {
-    width: 60px;
-    height: auto;
-    margin-bottom: 15px;
-}
-
-.device-controls {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.btn-control {
-    width: 70px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.btn-control.btn-danger {
-    background-color: #f44336;
-}
-
-.btn-control:hover {
-    transform: translateY(-3px);
-}
-
-.btn-control:active {
-    transform: translateY(0);
-}
-
-/* Tank Control Buttons */
-#drain-tank, #fill-tank {
-    margin: 10px;
-    padding: 15px 30px;
-    font-weight: bold;
-    border-radius: 10px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    border: none;
-}
-
-#drain-tank {
-    background-color: #FFC107;
-    color: #333;
-}
-
-#fill-tank {
-    background-color: #2196F3;
-    color: white;
-}
-
-#drain-tank:hover, #fill-tank:hover {
-    transform: translateY(-3px);
-}
-
-#drain-tank:active, #fill-tank:active {
-    transform: translateY(0);
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
+    body {
+        background-color: #f7f7f7;
+        font-family: 'Roboto', sans-serif;
+        color: #333;
+    }
+    
+    .management-card {
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-top: 30px;
+    }
+    
+    .section-title {
+        color: #4CAF50;
+        font-weight: bold;
+        font-size: 1.25rem;
+        margin-bottom: 15px;
+    }
+    
+    /* Valve Button Styles */
     .valves {
-        flex-direction: column;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
     }
-
+    
     .valve-button {
-        width: 100%;
-        margin-bottom: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 15px 25px;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        margin: 5px;
     }
-
-    .device-controls {
-        flex-direction: column;
+    
+    .valve-button.selected {
+        background-color: #ff5722; /* Highlight selected valve with orange */
     }
-
-    .btn-control {
-        width: 100%;
+    
+    .valve-button:hover {
+        transform: translateY(-3px); /* Lift the button slightly on hover */
+        background-color: #ff3d0073;
     }
-}
-
-@media (max-width: 576px) {
-    .device-image {
-        width: 50px;
+    
+    .valve-button:active {
+        transform: translateY(0); /* Return to normal position when clicked */
     }
-
+    
+    .valve-button.active {
+        background-color: #4CAF50; /* Green when active */
+    }
+    
+    .valve-button.inactive {
+        background-color: #f44336; /* Red when inactive */
+    }
+    
+    /* Device Card Styles */
     .device-card {
-        padding: 15px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        margin-bottom: 20px;
+        transition: background-color 0.3s ease;
     }
-
-    #drain-tank, #fill-tank {
+    
+    .device-card.on {
+        background-color: rgba(76, 175, 80, 0.2); /* Slightly transparent green */
+    }
+    
+    .device-card.off {
+        background-color: rgba(244, 67, 54, 0.2); /* Slightly transparent red */
+    }
+    
+    .device-image {
+        width: 80px;
+        height: auto;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .device-image:hover {
+        transform: scale(1.05); /* Slightly enlarge on hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+    }
+    
+    .device-controls {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .btn-control {
+        width: 100px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    
+    .btn-control.btn-danger {
+        background-color: #f44336;
+    }
+    
+    .btn-control:hover {
+        transform: translateY(-3px);
+    }
+    
+    .btn-control:active {
+        transform: translateY(0);
+    }
+    
+    /* Water Tank Container */
+    .water-tank-container {
+        position: relative;
+        width: 100px;
+        height: 200px;
+        background: linear-gradient(180deg, #4CAF50 0%, #2E7D32 100%);
+        border-radius: 20px 20px 10px 10px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        margin-right: 20px;
+    }
+    
+    /* Water Level Animation */
+    .water-level {
+        position: absolute;
+        bottom: 0;
         width: 100%;
-        margin-top: 10px;
+        height: 55%; /* Initially empty */
+        background: linear-gradient(180deg, #64B5F6 0%, #2196F3 100%);
+        transition: height 2s ease;
+        border-radius: 0 0 10px 10px;
     }
-}
-
+    
+    .water-level.fill {
+        height: 100%; /* Full tank */
+    }
+    
+    .water-level.drain {
+        height: 0%; /* Empty tank */
+    }
+    
+    /* Tank Control Buttons */
+    .tank-controls {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    #drain-tank, #fill-tank {
+        margin: 10px 0;
+        padding: 15px 30px;
+        font-weight: bold;
+        border-radius: 10px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        cursor: pointer;
+        border: none;
+        width: 180px;
+    }
+    
+    #drain-tank {
+        background-color: #FFC107;
+        color: #333;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    #fill-tank {
+        background-color: #2196F3;
+        color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    #drain-tank:hover, #fill-tank:hover {
+        transform: translateY(-3px);
+    }
+    
+    #drain-tank:active, #fill-tank:active {
+        transform: translateY(0);
+    }
+    
+    /* Additional Styling for the Water Tank */
+    .water-tank-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 8px;
+        background-color: #2E7D32;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Responsiveness */
+    @media (max-width: 768px) {
+        .valves {
+            flex-direction: column;
+        }
+    
+        .valve-button {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    
+        .device-controls {
+            flex-direction: column;
+        }
+    
+        .btn-control {
+            width: 100%;
+        }
+    
+        .device-image {
+            width: 70px;
+        }
+    
+        .water-tank-container {
+            width: 80px;
+            height: 160px;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .device-image {
+            width: 60px;
+        }
+    
+        .device-card {
+            padding: 15px;
+        }
+    
+        .water-tank-container {
+            width: 60px;
+            height: 120px;
+        }
+    
+        #drain-tank, #fill-tank {
+            width: 100%;
+            margin-top: 10px;
+        }
+    }
     
 
 </style>
 <div class="container mt-5">
     <div class="card management-card">
         <div class="card-body">
-            <h3 class="card-title" style="color: #9ecfaa;">Cihaz Kontrol Paneli</h3>
+            <h3 class="card-title">Cihaz Kontrol Paneli</h3>
             <hr>
             <div class="row">
                 <div class="col-md-12">
@@ -237,7 +313,7 @@ body {
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                {% comment %} <div class="col-md-3">
                     <div class="device-card">
                         <h6>Devirdaim 220V</h6>
                         <img src="{% static 'images/circulation.png' %}" alt="Devirdaim 220V" class="device-image">
@@ -246,8 +322,18 @@ body {
                             <button class="btn btn-danger btn-control" id="circulation-off">Kapat</button>
                         </div>
                     </div>                    
-                </div>
+                </div> {% endcomment %}
 
+                <div class="col-md-3">
+                    <div class="device-card" data-device="device3">
+                        <h6>Devirdaim 220V</h6>
+                        <img src="{% static 'images/circulation.png' %}" alt="Devirdaim 220V" class="device-image">
+                        <div class="device-controls">
+                            <button class="btn btn-success btn-control" id="speaker-on">Aç</button>
+                            <button class="btn btn-danger btn-control" id="speaker-off">Kapat</button>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-3">
                     <div class="device-card" data-device="device3">
                         <h6>45 kHz Hoparlör</h6>
@@ -258,7 +344,6 @@ body {
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-3">
                     <div class="device-card" data-device="device4">
                         <h6>Solar Enerji</h6>
@@ -269,12 +354,20 @@ body {
                         </div>
                     </div>
                 </div>
+                
                 <div class="col-md-12 mt-4">
-                    <div class="text-center">
-                        <button class="btn btn-warning" id="drain-tank">Su tankını boşalt</button>
-                        <button class="btn btn-primary" id="fill-tank">Su tankını doldur</button>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="water-tank-container">
+                            <div class="water-level" id="waterLevel"></div>
+                        </div>
+                        <div class="tank-controls ml-4">
+                            <button class="btn btn-warning" id="drain-tank">Su tankını boşalt</button>
+                            <button class="btn btn-primary" id="fill-tank">Su tankını doldur</button>
+                        </div>
                     </div>
                 </div>
+                
+                
             </div>
         </div>
     </div>

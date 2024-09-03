@@ -101,6 +101,16 @@ function toggleDevice(button, deviceCard) {
         toggleDevice(button, deviceCard);
     });
     
+    const waterLevel = $('#waterLevel');
+
+    $('#drain-tank').on('click', function() {
+        waterLevel.removeClass('fill').addClass('drain');
+    });
+
+    $('#fill-tank').on('click', function() {
+        waterLevel.removeClass('drain').addClass('fill');
+    });
+
     
     
     
