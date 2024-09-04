@@ -11,16 +11,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Anasayfa</a>
+                    <a class="nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Anasayfa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'kontrol' %}">Cihaz Kontrol</a>
+                    <a class="nav-link {% if request.path == '/kontrol/' %}active{% endif %}" href="{% url 'kontrol' %}">Cihaz Kontrol</a>
                 </li>      
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'about' %}">Hakkında</a>
+                    <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="{% url 'about' %}">Hakkında</a>
                 </li>      
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'map' %}">Harita</a>
+                    <a class="nav-link {% if request.path == '/map/' %}active{% endif %}" href="{% url 'map' %}">Harita</a>
                 </li>                
             </ul>
             <ul class="navbar-nav ms-auto">
